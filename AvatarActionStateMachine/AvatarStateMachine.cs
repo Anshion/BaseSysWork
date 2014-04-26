@@ -6,8 +6,8 @@ using System.Collections.Generic;
 public class AvatarStateMachine : MonoBehaviour {
 	public Avatar avatar;
 
-	public const int MaxActionNum = 0x2f;
-	public const int MaxEventNum = 0x2f;
+	public const int MaxActionNum = 0x1f;
+	public const int MaxEventNum = 0x1f;
 	/// <summary>
 	/// 玩家事件数组
 	/// </summary>
@@ -21,7 +21,7 @@ public class AvatarStateMachine : MonoBehaviour {
 	private ActionCode prevActionState = ActionCode.NONE;
 	private ActionCode nextActionState = ActionCode.NONE;
 
-	public void InitStateMachine()
+	public void Initialize()
 	{
 		this.avatar = this.GetComponent<Avatar>();
 		this.eventMatrix = new List<Transition>[MaxEventNum];

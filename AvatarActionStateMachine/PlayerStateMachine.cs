@@ -7,11 +7,14 @@ public class PlayerStateMachine : AvatarStateMachine {
 	{
 		base.AddAction(new ActRunning(base.avatar));
 		base.AddAction(new ActJumping(base.avatar));
+		base.AddAction(new ActOnAir(base.avatar));
 	}
 
 	protected override void InitEventMatrix ()
 	{
 		base.AddEventTranstion(ActionCode.RUNNING, ActionCode.JUMPING, new EventJump());
 		base.AddEventTranstion(ActionCode.JUMPING, ActionCode.RUNNING, new EventOnFloor());
+		base.AddEventTranstion(ActionCode.RUNNING, ActionCode.ON_AIR, new EventNotOnFloor());
+		base.AddEventTranstion(ActionCode.ON_AIR, ActionCode.RUNNING, new EventOnFloor());
 	}
 }

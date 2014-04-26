@@ -2,7 +2,8 @@
 using System.Collections;
 
 public enum EventCode {
-	EVENT_NONE,
-	EVENT_JUMP,
+	EVN_NONE,
+	EVN_JUMP,
 	EVN_ON_FLOOR,
+	EVN_NOT_ON_FLOOR,
 }

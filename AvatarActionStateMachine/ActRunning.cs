@@ -29,7 +29,6 @@ public class ActRunning : IAction {
 
 	public override void Update (float dt)
 	{
-		Debug.Log("ActRunning Update");
 		base.physics.MoveAvatarOnFloor(Time.fixedDeltaTime);
 	}
 }

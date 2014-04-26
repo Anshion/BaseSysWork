@@ -33,7 +33,6 @@ public class ActJumping : IAction {
 
 	public override void Update (float dt)
 	{
-		Debug.Log("ActJumping Update");
 		base.physics.MoveAvatarOnAir(dt);
 	}
 }

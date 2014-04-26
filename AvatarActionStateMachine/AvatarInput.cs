@@ -19,7 +19,6 @@ public class AvatarInput : MonoBehaviour {
 	public void InputProcessed()
 	{
 		Jump = false;
-		Debug.Log("InputProcessed");
 	}
 
 	protected virtual void OnInputProcessed()
