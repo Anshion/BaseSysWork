@@ -6,6 +6,10 @@ public class AvatarFlags : MonoBehaviour {
 	public float lastOnFloorTime;
 	public float onFloorDuration;
 
+	public bool startAttack;
+	public bool isOnAttack;
+	public float attackTime;
+
 	public void UpdateFlags()
 	{
 		if(avatar.physics.IsOnFloor())
@@ -16,5 +20,18 @@ public class AvatarFlags : MonoBehaviour {
 		}else{
 			onFloorDuration = 0;
 		}
+		if(isOnAttack)
+		{
+			attackTime += Time.deltaTime;
+		}else
+		{
+			attackTime = 0;
+		}
+	}
+
+	public void StartAttack()
+	{
+		isOnAttack = true;
+		attackTime = 0;
 	}
 }

@@ -5,6 +5,7 @@ public class AvatarInput : MonoBehaviour {
 	public Avatar avatar;
 
 	private bool jump;
+	private bool attack;
 	
 	public void UpdateInput()
 	{
@@ -19,6 +20,7 @@ public class AvatarInput : MonoBehaviour {
 	public void InputProcessed()
 	{
 		Jump = false;
+		Attack = false;
 	}
 
 	protected virtual void OnInputProcessed()
@@ -30,5 +32,11 @@ public class AvatarInput : MonoBehaviour {
 	{
 		get{return this.jump;}
 		set{jump = value;}
+	}
+
+	public bool Attack
+	{
+		get{return this.attack;}
+		set{attack = value;}
 	}
 }
