@@ -14,7 +14,7 @@ public class ActAttacking : IAction {
 	}
 	public override void GetIn (params object[] list)
 	{
-		Debug.Log("GetIn ActAttaking");
+		Debug.LogWarning("GetIn ActAttaking");
 
 		base.avatar.avatarFlags.isOnAttack = true;
 	}

@@ -9,7 +9,12 @@ public class EventAttack2_1 : IEvent {
 	}
 
 	public override bool Check ()
-	{Debug.Log("Check EventAttack2_1:" +  base.avatar.avatarFlags.attackTime);
-		return base.avatar.avatarInput.Attack && base.avatar.avatarFlags.attackTime > 0.4f;
+	{
+// 		Debug.Log("Check EventAttack2_1:" +  base.avatar.avatarFlags.attackTime);
+//		return base.avatar.avatarInput.Attack &&  
+//			((PlayerAvatarAnimation)base.avatar.avatarAnimation).CheckCurAnimationName("Attack1") &&
+//			base.avatar.avatarFlags.attackTime > 0.5f;
+	
+		return ((PlayerAvatarAnimation)base.avatar.avatarAnimation).CheckCurAnimationName("Attack2_1") ;
 	}
 }

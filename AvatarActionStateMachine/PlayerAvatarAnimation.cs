@@ -54,10 +54,9 @@ public class PlayerAvatarAnimation : AvatarAnimation {
 
 	private void UpdateAttacking()
 	{
-		bool isAttack = (avatarState == ActionCode.ATTACKING);
 //		if(IsAttackState(currentState))
 //		{
-		avatarAnimator.SetBool("attack", isAttack);
+		avatarAnimator.SetBool("attack", avatar.avatarInput.Attack);
 		avatarAnimator.SetBool("attack2_1", (avatarState == ActionCode.ATTACK2_1));
 		avatarAnimator.SetBool("attack2_2", (avatarState == ActionCode.ATTACK2_2));
 		avatarAnimator.SetBool("attack2_3", (avatarState == ActionCode.ATTACK2_3));
@@ -79,5 +78,28 @@ public class PlayerAvatarAnimation : AvatarAnimation {
 	{
 		currentState = avatarAnimator.GetCurrentAnimatorStateInfo(0);
 		return currentState.IsTag("run");
+	}
+
+	public bool IsPlayAttackStateAnim()
+	{
+		currentState = avatarAnimator.GetCurrentAnimatorStateInfo(0);
+		switch(avatarState)
+		{
+		case ActionCode.ATTACKING:
+			return currentState.IsName("Attack1");
+		case ActionCode.ATTACK2_1:
+			return currentState.IsName("Attack2_1");
+		case ActionCode.ATTACK2_2:
+			return currentState.IsName("Attack2_2");
+		case ActionCode.ATTACK2_3:
+			return currentState.IsName("Attack2_3");
+		}
+		return false;
+	}
+
+	public bool CheckCurAnimationName(string name)
+	{
+		currentState = avatarAnimator.GetCurrentAnimatorStateInfo(0);
+		return currentState.IsName(name);
 	}
 }

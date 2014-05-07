@@ -10,7 +10,6 @@ public class EventAttack2_3 : IEvent {
 
 	public override bool Check ()
 	{
-		Debug.Log("Check EventAttack2_3:" + base.avatar.avatarFlags.attackTime);
-		return base.avatar.avatarInput.Attack && base.avatar.avatarFlags.attackTime > 0.4f;
+		return ((PlayerAvatarAnimation)base.avatar.avatarAnimation).CheckCurAnimationName("Attack2_3");
 	}
 }

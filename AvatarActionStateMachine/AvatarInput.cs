@@ -6,10 +6,14 @@ public class AvatarInput : MonoBehaviour {
 
 	private bool jump;
 	private bool attack;
-	
+
+	private float attackTime;
+
 	public void UpdateInput()
 	{
 		OnUpdateInput();
+
+
 	}
 	
 	protected virtual void OnUpdateInput()
@@ -20,7 +24,7 @@ public class AvatarInput : MonoBehaviour {
 	public void InputProcessed()
 	{
 		Jump = false;
-		Attack = false;
+		if(Time.time - attackTime > avatar.attributes.AttackInputValidTime) attack = false;
 	}
 
 	protected virtual void OnInputProcessed()
@@ -37,6 +41,14 @@ public class AvatarInput : MonoBehaviour {
 	public bool Attack
 	{
 		get{return this.attack;}
-		set{attack = value;}
+		set{
+			if(value)
+			{
+				attackTime = Time.time;
+				attack = value;
+			}
+
+
+		}
 	}
 }

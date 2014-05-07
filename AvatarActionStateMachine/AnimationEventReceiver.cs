@@ -14,7 +14,6 @@ public class AnimationEventReceiver : MonoBehaviour {
 
 	void StartAttack()
 	{
-		Debug.Log("StartAttack");
 //		animator.SetBool("attack", false);
 	}
 }

@@ -19,7 +19,7 @@ public class ActRunning : IAction {
 
 	public override void GetIn (params object[] list)
 	{
-		Debug.Log("GetIn Running");
+		Debug.LogWarning("GetIn Running");
 	}
 
 	public override void GetOut()
