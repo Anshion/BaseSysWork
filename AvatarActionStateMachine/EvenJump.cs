@@ -13,6 +13,6 @@ public class EventJump : IEvent {
 		return 
 			(base.avatar.avatarInput.Jump) && 
 			(base.avatar.avatarFlags.lastOnFloorTime > Time.time - base.avatar.attributes.JumpOnFloorTimeTolerance) &&
-			(base.avatar.avatarFlags.onFloorDuration > 0.6f);
+			((PlayerAvatarAnimation)	base.avatar.avatarAnimation).IsRunState();
 	}
 }
